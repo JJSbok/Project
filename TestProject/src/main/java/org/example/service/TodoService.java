@@ -6,7 +6,6 @@ import org.example.model.TodoRequest;
 import org.example.repository.TodoRepository;
 import org.springframework.stereotype.Service;
 
-
 import java.util.List;
 
 @Service
@@ -23,6 +22,7 @@ public class TodoService {
         todoEntity.setCompleted(request.getCompleted());
         return this.todoRepository.save(todoEntity);
     }
+
 
     public TodoEntity searchById(Long id){
         return this.todoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시물이 존재하지 않습니다."));
