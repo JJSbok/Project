@@ -6,6 +6,7 @@ import org.example.adapter.*;
 import org.example.decorator.*;
 import org.example.facade.Ftp;
 import org.example.facade.Reader;
+import org.example.facade.SftpClient;
 import org.example.facade.Writer;
 import org.example.singleton.AClazz;
 import org.example.singleton.BClazz;
@@ -88,6 +89,13 @@ public class Main {
         writer.fileDisConnect();
         ftpClient.disConnect();
 
+        SftpClient sftpClient = new SftpClient("www.foo.co.kr", 22, "/home/etc","text.tmp");
+        sftpClient.connect();
 
+        sftpClient.write();
+
+        sftpClient.read();
+
+        sftpClient.disConnect();
     }
 }
